@@ -16,8 +16,10 @@ def index():
 
     # ヘッダーとボディを返す
     return jsonify({
+        'Method': request.method,
         'headers': headers,
-        'body': body
+        'params': request.args,
+        'body': body,
     })
 
 if __name__ == '__main__':
