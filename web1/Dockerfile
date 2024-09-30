@@ -5,7 +5,7 @@ FROM python:3.9-slim
 WORKDIR /usr/src/app
 
 # 必要なライブラリをインストール
-RUN pip install flask==1.1.2 gunicorn==19.9.0 Jinja2==2.11.3 MarkupSafe==1.1.1 itsdangerous==1.1.0 Werkzeug==1.0.1
+RUN pip install flask==1.1.2 gunicorn==20.0.4 Jinja2==2.11.3 MarkupSafe==1.1.1 itsdangerous==1.1.0 Werkzeug==1.0.1
 
 # Webサーバーのスクリプトをコピー
 COPY server.py .
