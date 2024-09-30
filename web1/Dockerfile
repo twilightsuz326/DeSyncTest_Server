@@ -10,5 +10,5 @@ RUN pip install flask==1.1.2 gunicorn==20.0.4 Jinja2==2.11.3 MarkupSafe==1.1.1 i
 # Webサーバーのスクリプトをコピー
 COPY server.py .
 
-# サーバーを起動
+# サーバーを起動 (パラメータ必須)
 CMD ["gunicorn", "--keep-alive", "10", "-k", "gevent", "-b", "0.0.0.0:8080", "-w", "4", "server:app"]
