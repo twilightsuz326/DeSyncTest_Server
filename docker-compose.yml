@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  haproxy:
+    build:
+      context: ./haproxy
+    ports:
+      - "80:80"
+    networks:
+      - webnet
+    depends_on:
+      - web1
+
+  web1:
+    build:
+      context: ./web1
+    networks:
+      - webnet
+    expose:
+      - "8080"
+
+networks:
+  webnet:
