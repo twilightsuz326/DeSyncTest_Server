@@ -4,6 +4,13 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
+    return process()
+
+@app.route('/test', methods=['GET', 'POST'])
+def test():
+    return process()
+
+def process():
     # the next line is required for Transfer-Encoding support in the request
     request.environ['wsgi.input_terminated'] = True
     headers = {}
@@ -17,6 +24,7 @@ def index():
     # ヘッダーとボディを返す
     return jsonify({
         'Method': request.method,
+        'Path': request.path,
         'headers': headers,
         'params': request.args,
         'body': body,
